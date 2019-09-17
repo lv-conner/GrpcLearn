@@ -1,0 +1,10 @@
+﻿syntax = "proto3";
+package HelloMessage;
+option csharp_namespace="HelloMessage";
+
+message HelloMessageRequest{
+	string name = 1;
+}
+message HelloMessageResponse{
+	string message = 1;
+}
