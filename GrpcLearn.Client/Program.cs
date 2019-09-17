@@ -15,14 +15,18 @@ namespace GrpcLearn.Client
             //when host in Grpc.AspNetCore.Server use this;
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             //when use this,it can work;
-            //var channel = GrpcChannel.ForAddress("http://localhost:8888", new GrpcChannelOptions()
-            //{
-            //    Credentials = ChannelCredentials.Insecure
-            //});
+            var channel = GrpcChannel.ForAddress("http://localhost:8888", new GrpcChannelOptions()
+            {
+                Credentials = ChannelCredentials.Insecure
+            });
+
+
             //then host in aspnetcore with https; use this;
             //var channel = GrpcChannel.ForAddress("https://localhost:8888");
+
+
             //use this will work when service host in aspnetcore.but can not work when service host in Grpc.Core.Server
-            var channel = new Channel("localhost:8888", ChannelCredentials.Insecure);
+            //var channel = new Channel("localhost:8888", ChannelCredentials.Insecure);
             var client = new HelloMessageService.HelloService.HelloServiceClient(channel);
             var helloRes = client.SayHello(new HelloMessage.HelloMessageRequest() { Name = "tim lv" });
 
