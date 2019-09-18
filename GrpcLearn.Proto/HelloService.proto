@@ -6,8 +6,8 @@ import "HelloMessage.proto";
 
 
 service HelloService{
-	rpc SayHello (HelloMessageRequest) returns (HelloMessageResponse);
-	rpc SayHelloSingle (HelloMessageRequest) returns (stream HelloMessageResponse);
-	rpc SayHelloSingleReverse(stream HelloMessageRequest) returns (HelloMessageResponse);
-	rpc SayHelloStreamVersion (stream HelloMessageRequest) returns (stream HelloMessageResponse);
+	rpc SayHello (HelloMessageRequest) returns (HelloMessageResponse){};
+	rpc SayHelloSingle (HelloMessageRequest) returns (stream HelloMessageResponse){};
+	rpc SayHelloSingleReverse(stream HelloMessageRequest) returns (HelloMessageResponse){};
+	rpc SayHelloStreamVersion (stream HelloMessageRequest) returns (stream HelloMessageResponse){};
 }
